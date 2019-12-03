@@ -78,7 +78,12 @@ public class Vista {
 		case 3:
 			
 			EmpleadoControllerXml empl=new EmpleadoControllerXml();
-			empl.listaEmpleado();
+			//empl.listaEmpleado();
+			ArrayList<Empleado> empleados=new ArrayList<Empleado>();
+			empleados=empl.listaEmpleados();
+			for(Empleado emple:empleados) {
+				System.out.println(emple.toString());
+			}
 			break;
 
 		case 4:

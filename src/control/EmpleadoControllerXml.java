@@ -169,10 +169,10 @@ public class EmpleadoControllerXml {
 	}
 	
 	
-	public void listaEmpleado() {
+	//public void listaEmpleado() {
 	//TAMBIEN SE PUEDE HACER MEDIANTE UN ARRAYLIST
-	//public ArrayList<Empleado> listaEmpleados() {
-		//ArrayList<Empleado>misEmpleados=new ArrayList<Empleado>();
+	public ArrayList<Empleado> listaEmpleados() {
+		ArrayList<Empleado>misEmpleados=new ArrayList<Empleado>();
 		try {
 			DocumentBuilderFactory dbf=DocumentBuilderFactory.newInstance();
 			DocumentBuilder builder=dbf.newDocumentBuilder();
@@ -188,15 +188,15 @@ public class EmpleadoControllerXml {
 				if(em.getNodeType()==Node.ELEMENT_NODE) {
 					Element empleado=(Element)em;
 				
-					System.out.println("NIF "+ empleado.getElementsByTagName("nIF").item(0).getTextContent());
-					System.out.println("Nombre "+ empleado.getElementsByTagName("nombre").item(0).getTextContent());
-					System.out.println("Apellidos "+ empleado.getElementsByTagName("apellidos").item(0).getTextContent());
-					System.out.println("Salario "+ empleado.getElementsByTagName("salario").item(0).getTextContent());
-					System.out.println("===================");
-					//misEmpleados.add(new Empleado(empleado.getElementsByTagName("nIF").item(0).getTextContent(), 
-						//	empleado.getElementsByTagName("nombre").item(0).getTextContent(),
-						//	empleado.getElementsByTagName("apellidos").item(0).getTextContent(), 
-						//	Double.valueOf(empleado.getElementsByTagName("salario").item(0).getTextContent())));
+					//System.out.println("NIF "+ empleado.getElementsByTagName("nIF").item(0).getTextContent());
+					//System.out.println("Nombre "+ empleado.getElementsByTagName("nombre").item(0).getTextContent());
+					//System.out.println("Apellidos "+ empleado.getElementsByTagName("apellidos").item(0).getTextContent());
+					//System.out.println("Salario "+ empleado.getElementsByTagName("salario").item(0).getTextContent());
+					//System.out.println("===================");
+					misEmpleados.add(new Empleado(empleado.getElementsByTagName("nIF").item(0).getTextContent(), 
+							empleado.getElementsByTagName("nombre").item(0).getTextContent(),
+							empleado.getElementsByTagName("apellidos").item(0).getTextContent(), 
+							Double.valueOf(empleado.getElementsByTagName("salario").item(0).getTextContent())));
 				}
 			}
 			
@@ -213,7 +213,7 @@ public class EmpleadoControllerXml {
 			e.printStackTrace();
 		}
 		
-		//return misEmpleados;
+		return misEmpleados;
 		
 	}
 	
